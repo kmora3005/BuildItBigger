@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+
+    defaultConfig {
+        applicationId "com.udacity.gradle.builditbigger"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+        }
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+
+
+        }
+        free {
+            manifest.srcFile 'src/free/AndroidManifest.xml'
+        }
+    }
+    packagingOptions {
+        exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/*'
+        exclude 'com/google/appengine/repackaged/org/codehaus/jackson/impl/VERSION.txt'
+        exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/*'
+    }
+}
+
+configurations {
+    compile.exclude group: "org.apache.httpcomponents", module: "httpclient"
+}
+
+ext {
+    supportLibVersion = '25.4.0'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(path: ':javajokes')
+    compile project(path: ':androidjokes')
+
+    compile "com.android.support:design:${supportLibVersion}"
+    compile "com.android.support:support-annotations:${supportLibVersion}"
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+
+    freeCompile 'com.google.android.gms:play-services-ads:11.2.0'
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
+    compile 'com.google.http-client:google-http-client-android:1.22.0'
+    compile 'com.google.api-client:google-api-client:1.22.0'
+    compile project(path: ':backendJokes', configuration: 'android-endpoints')
+
+    androidTestCompile "com.android.support:support-annotations:${supportLibVersion}"
+    androidTestCompile 'com.android.support.test:runner:1.0.1'
+    androidTestCompile 'com.android.support.test:rules:1.0.1'
+
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-contrib:3.0.1'
+
+}
