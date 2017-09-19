@@ -3,7 +3,6 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v4.util.Pair;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -20,13 +19,13 @@ import java.io.IOException;
  * Created by kenneth on 17/09/2017.
  */
 
-public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
     private static MyApi myApiService = null;
-    private Context context;
+    private Context mContext;
 
     @SafeVarargs
     @Override
-    protected final String doInBackground(Pair<Context, String>... params) {
+    protected final String doInBackground(Context... params) {
         if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
@@ -45,11 +44,10 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
             myApiService = builder.build();
         }
 
-        context = params[0].first;
-        String name = params[0].second;
+        mContext = params[0];
 
         try {
-            return myApiService.sayHi(name).execute().getData();
+            return myApiService.sayAJoke().execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -57,9 +55,9 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
 
     @Override
     protected void onPostExecute(String result) {
-        Intent myIntent = new Intent(context, JokesActivity.class);
+        Intent myIntent = new Intent(mContext, JokesActivity.class);
         myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         myIntent.putExtra(Intent.EXTRA_TEXT,result);
-        context.startActivity(myIntent);
+        mContext.startActivity(myIntent);
     }
 }

@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.udacity.gradle.builditbigger.R;
-import com.udacity.gradle.jokes.Joker;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -46,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void tellJoke(View view) {
 
-        String joke = new Joker().getJoke();
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, joke));
+
+        new EndpointsAsyncTask().execute(this);
     }
 
 }

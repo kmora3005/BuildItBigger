@@ -12,9 +12,13 @@ public class JokesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jokes);
 
-        String joke = getIntent().getStringExtra(Intent.EXTRA_TEXT);
-        TextView tvJoke = (TextView)findViewById(R.id.tv_joke);
-        tvJoke.setText(joke);
+        Intent intent = getIntent();
+        if (intent.hasExtra(Intent.EXTRA_TEXT)){
+            String joke = getIntent().getStringExtra(Intent.EXTRA_TEXT);
+            TextView tvJoke = (TextView)findViewById(R.id.tv_joke);
+            tvJoke.setText(joke);
+        }
+
 
     }
 }

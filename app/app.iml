@@ -138,6 +138,8 @@
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="google-http-client-android-1.22.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-ads-lite-11.2.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-basement-11.2.0" level="project" />
     <orderEntry type="library" exported="" name="guava-jdk5-17.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="accessibility-test-framework-2.0" level="project" />
     <orderEntry type="library" exported="" name="constraint-layout-1.0.2" level="project" />
@@ -146,9 +148,11 @@
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-integration-1.3" level="project" />
     <orderEntry type="library" exported="" name="design-25.4.0" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-25.4.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-ads-11.2.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="espresso-core-3.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="espresso-idling-resource-3.0.1" level="project" />
     <orderEntry type="library" exported="" name="google-oauth-client-1.22.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-gass-11.2.0" level="project" />
     <orderEntry type="library" exported="" name="jsr305-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-core-utils-25.4.0" level="project" />
     <orderEntry type="library" exported="" name="support-fragment-25.4.0" level="project" />
@@ -172,7 +176,6 @@
     <orderEntry type="library" exported="" name="support-vector-drawable-25.4.0" level="project" />
     <orderEntry type="library" exported="" name="support-compat-25.4.0" level="project" />
     <orderEntry type="library" exported="" name="animated-vector-drawable-25.4.0" level="project" />
-    <orderEntry type="module" module-name="javajokes" exported="" />
     <orderEntry type="module" module-name="androidjokes" exported="" />
     <orderEntry type="module" module-name="backendJokes" exported="" />
     <orderEntry type="library" exported="" name="android-android-25" level="project" />
@@ -183,11 +186,8 @@
     <orderEntry type="library" exported="" name="constraint-layout-solver-1.0.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="rules-0.5" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="javax.annotation-api-1.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-lite-11.2.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-basement-11.2.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-11.2.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-gass-11.2.0" level="project" />
-    <orderEntry type="module" module-name="javajokes" exported="" />
+    <orderEntry type="module" module-name="androidjokes" exported="" />
+    <orderEntry type="module" module-name="backendJokes" exported="" />
     <orderEntry type="module" module-name="androidjokes" exported="" />
     <orderEntry type="module" module-name="backendJokes" exported="" />
   </component>
